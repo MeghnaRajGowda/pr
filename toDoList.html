@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO List - DOM</title>
+    <style>
+        .new-class{
+            color: rgb(227, 243, 0);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: block;
+            background-color: rgb(123, 171, 51);
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading" id="head">Heading</h1>
+        <p class="cont" id="content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, eum.</p>
+        <label for="UserName">Name:</label>
+        <input type="text" class="name" id="UserName" onkeypress="addData(event)" placeholder="Enter Name"><br><br>
+        <label for="number">Number:</label>
+        <input type="number" class="num" id="number" placeholder="Enter Number"><br><br>
+        <button id="btn" class="btn-btn" onclick="createTags()">Submit</button>
+        <button id="bt" onclick="addData()">Add</button>
+        <button id="crt" onclick="createData()">Create</button>
+        <ul id="ulist"></ul>
+    </div>
+
+    <script>
+        const h = document.querySelector(".heading");
+        h.classList.add('new-class');
+
+        function createTags(){
+            let data = document.getElementById("UserName")
+
+            // let data1 = document.getElementById("number")
+
+            let b = document.getElementById("ulist")
+            
+            let c = document.createElement("li")
+            console.log(c);
+
+            c.innerHTML= data.value
+            // c.innerHTML=data1.value
+
+            b.appendChild(c)
+
+            data.value=""
+            // data1.value=""
+
+            c.style.backgroundColor="teal"
+            c.style.marginTop = "10px"
+            c.style.padding = "20px"
+            c.style.textAlign = "center"
+            c.style.color = "white"
+
+        }
+
+        function addData(e){
+            // console.log(e);
+
+            if(e.code=="Enter") {
+                let UserName = e.target
+                console.log(UserName);
+                let ulist = document.getElementById("ulist")
+                
+                let b = document.createElement("li")
+                console.log(b);  
+
+                b.innerHTML=UserName.value
+
+                ulist.appendChild(b)
+                UserName.value=""
+            }
+        }
+
+    </script>
+</body>
+</html>

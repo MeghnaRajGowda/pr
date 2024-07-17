@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Events</title>
+    <!-- <script src="domEvents.js"></script> -->
+</head>
+<body>
+    <div id="container">
+        <h1 onmouseover="changeColor()" onmouseleave="defaultColor()" class="heading1" id="heading2">Lorem ipsum dolor sit amet.</h1>
+        <p class="content1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, aspernatur?
+        </p>
+        <table>
+            <form action="">
+                <tr>
+                    <th><label for="userName">Full Name: </label></th>
+                    <td>
+                        <input type="text" class="name" id="userName" placeholder="Your Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="number">Phone Number: </label></th>
+                    <td><input type="number" class="num" id="number" placeholder="Your Number" required></td>
+                </tr>
+                <tr>
+                    <th><label for="">Email: </label></th>
+                    <td><input type="email" id="email" class="email-id" placeholder="Your Email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="Course">Interested Course:</label></th>
+                    <td><select name="course" id="Course">
+                        <option value="0">---Select Course---</option>
+                        <option value="1">HTML</option>
+                        <option value="2">CSS</option>
+                        <option value="3">JavaScript</option>
+                        <option value="4">BootStrap</option>
+                        <option value="5">SCSS</option>
+                        <option value="6">Python/Django</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <th><label for="mode">Mode Of Class:</label></th>
+                    <td><select name="mode" id="mode">
+                        <option value="0">---Select Mode Of Class---</option>
+                        <option value="1">Online</option>
+                        <option value="2">Offline</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <th><input onclick="popUp()" type="button" value="Submit" id="btn" class="button"></th>
+                </tr>
+                
+            </form>
+        </table>
+    </div>
+
+    <script src="domEvents.js"></script>
+
+    <!-- <script>
+
+        let hd = document.getElementById("container")
+        console.log(hd);
+
+        let a = document.getElementsByClassName("heading1");
+        console.log(a);
+
+        let b = document.getElementById("heading2");
+        console.log(b)
+
+        b.style.color = "green"
+
+        function changeColor(){
+            b.style.color = "red"
+        }
+
+        defaultColor=()=>{
+            b.style.color = "green";
+        }
+
+        let bt = document.getElementById("btn")
+        function popUp(){
+                alert("Form Submitted Successully")
+                bt.style.backgroundColor = "red"
+                bt.style.fontFamily = "georgia"
+                bt.style.fontSize = "100px"
+                bt.style.color = "white"
+        }
+
+    </script> -->
+</body>
+</html>
