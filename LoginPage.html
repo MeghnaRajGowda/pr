@@ -13,7 +13,7 @@
                 Login Page
             </div>
             <div class="card-body">
-                <form onsubmit="validation()">
+                <form onsubmit="validation()" action="https://www.google.com">
                     <div class="mb-3">
                       <label for="username" class="form-label">User Name</label>
                       <input type="text" class="form-control" id="username" required placeholder="Enter User Name">
@@ -23,6 +23,8 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" required placeholder="Enter Password">
                       </div>
+
+                      <a class="fw-bold" href="forgotPassword.html" target="_blank">Forgot Password?</a>
                       
                     </div>
                     <button type="submit" class="btn btn-success m-auto mb-3">Login</button>
@@ -36,13 +38,17 @@
         function validation(){
             let us = localStorage.getItem("UserName")
             let user = document.getElementById("username").value
+
             let ps = localStorage.getItem("Password")
             let pswd = document.getElementById("password").value
+            
             if (us!=user || ps!=pswd) {
                 alert("Invalid Credentials")
             }
             else{
                 alert("Login Successfull")
+                // // window.location.href="https://www.w3schools.com/"
+                // window.location.href="https://www.google.com"
             }
         }
     </script>
