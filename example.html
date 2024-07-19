@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To DO list</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="name" placeholder="Enter Your Name"><br><br>
+        <button id="btn" onclick="toDoList()">Submit</button>
+    </div>
+    <ul id="item-list"></ul>
+    <script>
+        function toDoList(){
+
+            let data = document.getElementById("name")
+            console.log(data);
+
+            localStorage.setItem("Myname", data)
+
+            let ul = document.getElementById("item-list")
+
+            let element = document.createElement("li")
+            console.log(element);
+
+            element.innerHTML=`${data.value}`
+
+            ul.appendChild(element)
+            element.style.backgroundColor="blue"
+            element.style.padding="20px"
+            element.style.marginTop="20px"
+            element.style.color="white"
+            element.style.listStyle="dot"
+
+            data.value=""
+            
+            console.log('22'/2);
+
+            
+        }
+    </script>
+</body>
+</html>
