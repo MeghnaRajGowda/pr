@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Find Maximum Number of the given array</title>
+</head>
+<body>
+    <script>
+        //To finnd maximum number in the given array - By using Math functions
+
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let maxNum = Math.max(...arr)
+        console.log(maxNum);
+
+        //By using loop
+
+        let arr1 = [25, 50, 100, 200, 400, 800, 1600]
+        let max = arr[0] //To iterate all the values present inside the given array arr[0]=>represents array starts with index 0
+        for(i=0; i<arr1.length; i++){
+            // console.log(arr1[i]);
+            if(arr1[i]>max){
+                max=arr1[i]
+            }
+        }
+        console.log(max);
+
+        //To find sum of the array
+
+        const array1 = [20,40,80,90]
+        let sum = 0
+        for(i=0; i<array1.length; i++){
+            sum = array1[i] + sum
+        }
+        console.log(sum);
+
+        //To find minimum number in the given array
+
+        const miniNum = [0, -1, -2, -0, 5, -30]
+        let miniNumber = miniNum[0]
+        for(i=0; i<miniNum.length; i++){
+            if(miniNum[i]<miniNumber){
+                min=miniNum[i]
+            }
+        }
+        console.log(min);
+
+
+    
+
+    </script>
+</body>
+</html>

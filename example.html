@@ -17,14 +17,14 @@
             let data = document.getElementById("name")
             console.log(data);
 
-            localStorage.setItem("Myname", data)
-
             let ul = document.getElementById("item-list")
 
             let element = document.createElement("li")
             console.log(element);
 
             element.innerHTML=`${data.value}`
+
+            localStorage.setItem("Myname", `${data.value}`)
 
             ul.appendChild(element)
             element.style.backgroundColor="blue"

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Event Listeners - DOM JavaScript</title>
+</head>
+<body>
+
+    <!-- Event Listeners are work as same as the event but the only difference is we need not provide attribute to perform action
+     in eventListeners we can do the action by using .addEventListeners 
+     
+     Event Propagation:
+            The way of executing the code or the process of perform action on order wise is known as event propagation.
+        In Event Propagation we have two types
+            1. Event Bubling => It will trigger the child element first before the parent element
+            2. Event Capturing => It will trigger parent element first and the child element
+
+                Event bubling represents as false statement
+                Event capturing represents as true statement
+
+    The syntax for Event Propagation is
+
+    let a = document.getElementById("Demo")
+
+    a.addEventListeners("click", function(){
+        alert("Event Propagation")
+    }false)
+
+    a.addEventListeners("click", ()=>{
+        alert("Event Progation 1")
+    }false)
+
+    The above code snippet will first perform the child element action and then perform the parent element action
+     
+     
+    let a = document.getElementById("Demo")
+
+    a.addEventListeners("click", function(){
+        alert("Event Propagation")
+    },true)
+
+    a.addEventListeners("click", ()=>{
+        alert("Event Progation 1")
+    },true)
+
+    The above code snippet will first perform the parent element action and then perform the child element action
+     
+    The default execution is first in first action
+     
+     
+     -->
+    <div class="container-fluid mt-5">
+        <div class="card">
+            <div class="card-title mt-4 text-center fw-bold fs-4 text-primary">
+                Registration From
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Your Password">
+                    </div>
+
+                    <div class="text-center" id="parent">
+                    <button type="submit" id="btn" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // let btn = document.getElementsByClassName("btn btn-primary")
+        // console.log(btn);
+
+        let butn = document.getElementById("btn")
+        // console.log(butn);
+
+        butn.addEventListener("click", ()=>{
+
+            alert("Event Bubling")
+            
+            // window.location.href = 'https://www.github.com/MeghnaRajGowda/Front-End-Folder';
+            // window.location.replace("https://www.google.com")
+        },true)
+
+        let btns = document.getElementById("parent")
+
+        btns.addEventListener("click", function(){
+            alert("Event Capturing")
+        },true)
+
+
+        /*JavaScript Math Functions
+           it provides various math functions such as
+            1. Arithmatic functions
+            2. Trignometric functions
+            3. Constant functions
+            4. Exponential and Logarithmic functions
+
+            1. Arithmetic Function
+                Math.pow(x, y) => y is the power of x
+                Math.sqrt(2) => square of 2
+                Math.round(2.5) => it will print the max & min number if 2.5 and greater than .5 it will print 3 if less then 0.5 it will print 2
+                Math.floor(2.5) => It will print only the min num like 2
+                Math.ceil(2.1)=> It will print max num 3
+
+        */
+
+        let maxNum = Math.max(20, 100, 500, 1000, 25, 1250)
+        console.log(maxNum);
+
+        let minNum = Math.min(10, 50, 2, -1, 5, 200)
+        console.log(minNum);
+
+        let powerNum = Math.pow(10, 2)
+        console.log(powerNum);
+
+        let roundNum = Math.round(2.5)
+        console.log(roundNum);
+
+        let roundNum1 = Math.round(2.2)
+        console.log(roundNum1);
+
+        let floor = Math.floor(4.1)
+        console.log(floor);
+
+        let floor1 = Math.floor(4.8)
+        console.log(floor1);
+
+        let ceilNum = Math.ceil(6.1)
+        console.log(ceilNum);
+
+        let ceilNum1 = Math.ceil(6.9)
+        console.log(ceilNum1);
+
+        let truncNum = Math.trunc(122.565885445)
+        console.log(truncNum);
+
+        let absolute = Math.abs(25.2565)
+        console.log(absolute);
+
+        let square = Math.sqrt(5)
+        console.log(square);
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
