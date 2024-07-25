@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <title>Document</title>
+</head>
+<body>
+
+       <div class="container" style="width: 350px;">
+         <div class="card">
+            <div class="card-title text-center  ">
+
+               <h1>CRUD OPERATIONS</h1>
+
+            </div>
+
+            <div class="card-body">
+               <form onsubmit="submitData()" >
+                  <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label">Name</label>
+                     <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
+                    
+                   </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                   
+                  </div>
+                  <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label">Mobile</label>
+                     <input type="text" class="form-control" name="mobile" id="mobile" aria-describedby="emailHelp">
+                    
+                   </div>
+                   <div class="mb-3">
+                     <label for="exampleInputEmail1" class="form-label">Age</label>
+                     <input type="text" class="form-control" name="age" id="age" aria-describedby="emailHelp">
+                    
+                   </div>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+         </div>
+
+       </div>
+
+
+       <div class="container">
+         <div class="card">
+            <div class="card-title text-center">
+               <h1>Employee data</h1>
+
+            </div>
+            <div class="card-body">
+               <table class="table" id="delete">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Mobile</th>
+                      <th scope="col">Age</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                  </tbody>
+                </table>
+
+            </div>
+
+         </div>
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+   <script>
+
+      // let obj={}
+      // obj["name"]="sidhu"
+      // console.log(obj)
+
+
+
+
+      function readData(){
+
+         
+
+         let obj={}
+         obj["name"]=document.getElementById("name").value
+         obj["email"]=document.getElementById("email").value
+         obj["mobile"]=document.getElementById("mobile").value
+         obj["age"]=document.getElementById("age").value
+
+         // console.log(obj)
+         return obj
+
+      }
+
+
+
+
+
+      function tableData(data){
+
+         let tbl=document.getElementsByTagName("tbody")[0]
+         let row=tbl.insertRow(tbl.length)
+
+         row.insertCell(0).innerHTML=data.name
+         row.insertCell(1).innerHTML=data.email
+         row.insertCell(2).innerHTML=data.mobile
+         row.insertCell(3).innerHTML=data.age
+         row.insertCell(4).innerHTML=`<button onclick="sendData(this)" class="btn btn-info">Edit</button>
+                                      <button onclick="DeleteData(this)" class="btn btn-danger">Delete</button>`
+
+      }
+
+      let row=null
+      function submitData(){
+      event.preventDefault()
+      let x=readData()
+
+      if(row==null){
+        tableData(x)
+
+      }else{
+        EditData(x)
+      }
+
+   
+         restData()
+      }
+
+
+      function restData(){
+
+         document.getElementById("name").value=""
+         document.getElementById("email").value=""
+         document.getElementById("mobile").value=""
+         document.getElementById("age").value=""
+         row=null
+      }
+
+       const DeleteData=(t)=>{
+        
+        row=t.parentElement.parentElement
+            document.getElementById("delete").deleteRow(row.rowIndex)
+       }
+
+
+
+      // parentelemet
+
+
+      function sendData(t){
+
+        row=t.parentElement.parentElement
+
+        document.getElementById("name").value=row.cells[0].innerHTML
+         document.getElementById("email").value=row.cells[1].innerHTML
+         document.getElementById("mobile").value=row.cells[2].innerHTML
+         document.getElementById("age").value=row.cells[3].innerHTML
+
+
+
+      }
+
+
+      function EditData(t){
+
+       row.cells[0].innerHTML=t.name
+       row.cells[1].innerHTML=t.email
+       row.cells[2].innerHTML=t.mobile
+       row.cells[3].innerHTML=t.age
+       
+
+      }
+
+      
+
+
+
+   </script>
+
+
+
+
+
+
+
+   
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>CRUD Operations</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-title text-center mt-4 text-primary">
+                <h2>Form Data</h2>
+            </div>
+            <div class="card-body">
+                <form onsubmit="callAllFuncs()" autocomplete="off">
+
+                    <div class="mb-3">
+                        <label for="firstname" class="form-label fw-bold text-primary">First Name</label>
+                        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter Your First Name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label fw-bold text-primary">Last Name</label>
+                        <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Your Last Name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="number" class="form-label fw-bold text-primary">Mobile Number</label>
+                        <input type="number" class="form-control" name="mobilenumber" id="mobilenumber" placeholder="Enter Your Mobile Number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="city" class="form-label fw-bold text-primary">City</label>
+                        <input type="text" class="form-control" name="city" id="city" placeholder="Enter Your City">
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary fw-bold">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div><br><br>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-title text-primary text-center">
+                <h2>Employee Data</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="text-primary text-center" scope="col">First Name</th>
+                        <th class="text-primary text-center" scope="col">Last Name</th>
+                        <th class="text-primary text-center" scope="col">Mobile Number</th>
+                        <th class="text-primary text-center" scope="col">City</th>
+                        <th class="text-primary text-center" scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function readData(){
+
+            let userData = {}
+
+
+            userData["firstname"] = document.getElementById("firstname").value
+            userData["lastname"] = document.getElementById("lastname").value
+            userData["mobilenumber"] = document.getElementById("mobilenumber").value
+            userData["city"] = document.getElementById("city").value
+
+            return userData;
+
+        }
+
+        // function validation(){
+        //     let name = document.getElementById("firstname").value
+        //     let lname = document.getElementById("lastname").value
+        //     let num = document.getElementById("mobilenumber").value
+        //     let city = document.getElementById("city").value
+
+        //     if(name=="" && lastname =="" && mobilenumber=="" && city ==""){
+        //         alert("Enter Valid Data")
+        //     }
+
+        // }
+
+        function insertData(data){
+            let tbl = document.getElementsByTagName("tbody")[0]
+
+            let row = tbl.insertRow(tbl.length)
+
+            row.insertCell(0).innerHTML = data.firstname
+            row.insertCell(1).innerHTML = data.lastname
+            row.insertCell(2).innerHTML = data.mobilenumber
+            row.insertCell(3).innerHTML = data.city
+            row.insertCell(4).innerHTML = `<div class="text-center">
+                                            <a href="updatePage.html">Update</a>
+                                            <a href="#">Delete</a>
+                                            </div>`
+
+        }
+        
+        function clearData(){
+            document.getElementById("firstname").value = ""
+            document.getElementById("lastname").value = ""
+            document.getElementById("mobilenumber").value = ""
+            document.getElementById("city").value = ""
+
+        }
+
+        function callAllFuncs(){
+            event.preventDefault()
+
+            // let allFun = readData()
+
+            insertData(readData())
+
+            clearData()
+        }
+    </script>
+</body>
+</html>-
